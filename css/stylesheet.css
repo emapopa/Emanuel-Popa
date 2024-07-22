@@ -3569,6 +3569,7 @@ input:-internal-autofill-selected {
 
 @media (max-width: 575.98px) {
   .hero-bg {
-    background-image: url("/images/background.jpg");;
+    background-image: url("/images/background.jpg");
+    background-size: cover;
   }
 }
