@@ -3566,4 +3566,7 @@ input:-internal-autofill-selected {
   border-radius: 4px 0px 0px 4px;
 }
 
+.hero-bg{
+  background-image: url(/images/background.jpg);
+}
 
