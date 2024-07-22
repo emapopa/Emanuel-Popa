@@ -48,7 +48,8 @@ body, html {
 }
 
 body {
- 
+  background: #dddddd;
+  color: #4c4d4d;
   font-family: "Poppins", sans-serif;
 }
 
@@ -3565,8 +3566,3 @@ input:-internal-autofill-selected {
   left: -40px;
   border-radius: 4px 0px 0px 4px;
 }
-
-.hero-wrap{
-  background-image: url(/images/background.jpg);
-}
-
