@@ -236,6 +236,33 @@ video {
   color: white;
 }
 
+.profile-picture {
+  display: none;
+}
+
+/* Show profile picture on mobile devices */
+/* Center profile picture on mobile devices */
+@media (max-width: 767px) {
+  .profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /* Make the container take over the entire height */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+  }
+
+  .profile-picture {
+    display: block;
+    max-width: 80%; /* Adjust as needed */
+    height: auto;
+    border-radius: 50%; /* Optional: makes the picture circular */
+    margin-left: 10%;
+  }
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   :root {
