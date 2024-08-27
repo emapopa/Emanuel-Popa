@@ -256,10 +256,11 @@ video {
 
   .profile-picture {
     display: block;
-    max-width: 80%; /* Adjust as needed */
-    height: auto;
-    border-radius: 50%; /* Optional: makes the picture circular */
-    margin-left: 10%;
+    width: 150px; /* Set a fixed width */
+    height: 150px; /* Set a fixed height to ensure it's a circle */
+    border-radius: 50%; /* Makes the picture circular */
+    object-fit: cover; /* Ensures the image covers the circle without stretching */
+    margin-left: 30%; /* Remove default margins */
   }
 }
 
