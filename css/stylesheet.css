@@ -43,8 +43,6 @@ body, html {
 
 
 
-
-
 .carousel {
   display: flex;
   justify-content: space-between;
@@ -54,10 +52,11 @@ body, html {
 }
 
 .carousel-image {
-  width: 23%;
+  width: 23%; /* Small images in the carousel */
   cursor: pointer;
   border-radius: 8px;
   transition: transform 0.3s ease;
+  object-fit: cover; /* Ensures the images fit within the specified width */
 }
 
 .carousel-image:hover {
@@ -66,7 +65,7 @@ body, html {
 
 /* Modal */
 .modal {
-  display: none;
+  display: none; /* Ensure the modal is hidden by default */
   position: fixed;
   z-index: 1000; /* Ensure the modal is on top of other elements */
   left: 0;
@@ -76,9 +75,9 @@ body, html {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   display: flex;
-  align-items: center;
+  align-items: flex-end; /* Aligns modal content to the bottom */
   justify-content: flex-end; /* Aligns modal content to the right */
-  padding-right: 20%; /* Adjusts the right padding to position the modal */
+  padding-right: 10%; /* Adjusts the right padding to position the modal */
 }
 
 /* Modal Content */
@@ -89,17 +88,19 @@ body, html {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-left: auto; /* Pushes the modal content to the right */
+  position: relative; /* Position relative for the close button */
 }
 
+/* Close Button */
 .close {
   position: absolute;
   top: 10px;
-  right: 20px;
+  right: 10px;
   color: #333;
   font-size: 30px;
   font-weight: bold;
   cursor: pointer;
+  z-index: 1001; /* Ensure the close button is on top of the modal */
 }
 
 .close:hover,
@@ -107,10 +108,48 @@ body, html {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
-} 
+}
 
+/* Media Queries for Mobile Devices */
+@media screen and (max-width: 768px) {
+  .modal {
+      align-items: flex-start; /* Aligns modal content to the top */
+      padding-top: 100px; /* Pushes modal content further down */
+      padding-bottom: 20%; /* Adds space at the bottom of the screen */
+  }
 
+  .modal-content {
+      width: 80%; /* Increase width for smaller screens */
+      margin-left: 10%; /* Center the modal by adjusting left margin */
+      padding: 15px; /* Reduce padding for a more compact look */
+  }
+  
+  .close {
+      font-size: 25px; /* Adjust close button size */
+      top: 10px;
+      right: 10px;
+  }
+}
 
+@media screen and (max-width: 480px) {
+  .modal {
+      align-items: flex-start; /* Aligns modal content to the top */
+      padding-top: 150px; /* Pushes modal content further down on very small screens */
+      padding-bottom: 15%; /* Adjust space at the bottom for very small screens */
+  }
+
+  .modal-content {
+      width: 90%; /* Further increase width for very small screens */
+      margin-left: 5%; /* Center the modal by adjusting left margin */
+      padding: 10px; /* Further reduce padding */
+  }
+  
+  .close {
+      font-size: 20px; /* Adjust close button size */
+      top: 10px;
+      right: 10px;
+  }
+}
 
 
 

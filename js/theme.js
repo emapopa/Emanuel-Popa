@@ -383,12 +383,30 @@ form.on('submit', function (e) {
 function openModal(element) {
     const modal = document.getElementById('myModal');
     const modalImg = document.getElementById('modalImage');
-    modal.style.display = "block";
-    modalImg.src = element.src;
+    modal.style.display = "flex"; // Show the modal
+    modalImg.src = element.src; // Set the source of the modal image
 }
 
 // Close the Modal
 function closeModal() {
     const modal = document.getElementById('myModal');
-    modal.style.display = "none";
+    modal.style.display = "none"; // Hide the modal
 }
+
+// Event listeners for opening and closing the modal
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('myModal');
+    const closeBtn = document.querySelector('.close');
+    
+    // Ensure modal is hidden when the page loads
+    modal.style.display = "none";
+    
+    closeBtn.addEventListener('click', closeModal);
+    
+    // Optional: Close modal when clicking outside the modal content
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+});
