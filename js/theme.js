@@ -39,6 +39,7 @@ $(window).on('scroll',function() {
 		stickytopslide.find(".primary-menu").removeClass("sticky-on");
 		stickytopslide.find(".logo img").attr('src',stickytopslide.find('.logo img').data('default-logo'));
 	}
+
 });
 
 // Sections Scroll
@@ -290,6 +291,8 @@ $(function () {
 	});
 });
 
+
+
 /*------------------------
    Contact Form
 -------------------------- */
@@ -375,3 +378,17 @@ form.on('submit', function (e) {
 });
 
 })(jQuery)
+
+// Open the Modal
+function openModal(element) {
+    const modal = document.getElementById('myModal');
+    const modalImg = document.getElementById('modalImage');
+    modal.style.display = "block";
+    modalImg.src = element.src;
+}
+
+// Close the Modal
+function closeModal() {
+    const modal = document.getElementById('myModal');
+    modal.style.display = "none";
+}
