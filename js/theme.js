@@ -410,3 +410,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const showMoreButtons = document.querySelectorAll('.show-more-btn');
+
+    showMoreButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const content = this.previousElementSibling; // The paragraph element
+            const moreText = content.querySelector('.more-text');
+            
+            if (moreText.style.display === "inline") {
+                moreText.style.display = "none";
+                this.innerText = "Show More";
+            } else {
+                moreText.style.display = "inline";
+                this.innerText = "Show Less";
+            }
+        });
+    });
+});

@@ -265,6 +265,28 @@ video {
 }
 
 
+
+.content .more-text {
+  display: none; /* Initially hide the extra content */
+}
+
+.show-more-btn {
+  display: inline-block;
+  background-color: #20c997;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.show-more-btn:focus {
+  outline: none;
+}
+
+
+
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: auto;
