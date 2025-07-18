@@ -43,7 +43,142 @@ body, html {
 
 
 
+
+
+
+.carousel-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto; /* Add some margin for breathing space */
+  overflow: hidden;
+  border-radius: 10px; /* Smooth edges */
+}
+
 .carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  position: relative;
+}
+
+.carousel-item {
+  min-width: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  text-align: center;
+}
+
+.carousel-item.active {
+  opacity: 1;
+  position: relative;
+}
+
+.carousel-item img {
+  width: 100%;       /* Ensure the image stretches horizontally to fit the container */
+  height: auto;      /* Maintain aspect ratio */
+  object-fit: cover; /* Crop the image to fit the container without stretching */
+  max-height: 300px; /* Default max height for mobile/tablets */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.caption {
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 70px; /* Fixed height for the caption */
+  width: 100%; /* Full width of the carousel item */
+  box-sizing: border-box; /* Include padding in the width */
+  text-align: center; /* Center the text inside the caption */
+  display: flex; /* Use flexbox to center content */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+}
+
+/* Arrows */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 24px;
+  user-select: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+/* Apply different max-height for desktop screens (wider than 1024px) */
+@media (min-width: 1024px) {
+  .carousel-item img {
+      max-height: 600px; /* Max height for desktop */
+  }
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .carousel-container {
+      width: 90%;
+      max-width: 600px;
+  }
+
+  .caption {
+      font-size: 14px;
+      padding: 8px;
+  }
+
+  .prev, .next {
+      font-size: 20px;
+      padding: 8px;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .carousel-container {
+      width: 95%;
+      max-width: 400px;
+  }
+
+  .caption {
+      font-size: 12px;
+  }
+
+  .prev, .next {
+      font-size: 18px;
+      padding: 6px;
+  }
+}
+
+
+
+
+
+
+.carousel-test {
   display: flex;
   justify-content: space-between;
   width: 80%;
@@ -51,7 +186,7 @@ body, html {
   margin: 50px auto; /* Center carousel */
 }
 
-.carousel-image {
+.carousel-images {
   width: 23%; /* Small images in the carousel */
   cursor: pointer;
   border-radius: 8px;
@@ -59,7 +194,7 @@ body, html {
   object-fit: cover; /* Ensures the images fit within the specified width */
 }
 
-.carousel-image:hover {
+.carousel-images:hover {
   transform: scale(1.1);
 }
 

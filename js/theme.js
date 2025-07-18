@@ -430,3 +430,42 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+
+
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-item');
+const totalSlides = slides.length;
+
+// Initially set the first slide as active
+slides[currentSlide].classList.add('active');
+
+// Function to show the next slide
+function nextSlide() {
+    changeSlide(1); // Move to the next slide
+}
+
+// Function to change the slide based on user action (n: 1 or -1)
+function changeSlide(n) {
+    // Remove the active class from the current slide
+    slides[currentSlide].classList.remove('active');
+    
+    // Update the slide index and make sure it's within bounds
+    currentSlide = (currentSlide + n + totalSlides) % totalSlides;
+    
+    // Add the active class to the new slide
+    slides[currentSlide].classList.add('active');
+
+    // Reset the auto slide interval if the user manually changes slides
+    resetInterval();
+}
+
+// Automatically move to the next slide every 2 seconds
+let slideInterval = setInterval(nextSlide, 2000);
+
+// Function to reset the interval timer after manual slide change
+function resetInterval() {
+    clearInterval(slideInterval);  // Clear the existing interval
+    slideInterval = setInterval(nextSlide, 2000);  // Restart the auto slide
+}
+
